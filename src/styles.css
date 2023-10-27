@@ -65,6 +65,7 @@ body {
 .an-watch-face {
     align-items: center;
     background-color: rgba(80, 80, 80, 0.8);
+    background-size: cover;
     border: 2px solid #fff;
     border-radius: 50%;
     display: flex;
@@ -89,6 +90,7 @@ body {
     height: 4px;
     top: 3px;
     transform-origin: left;
+    transform: rotate(-90deg);
 }
 .second {
     width: min(35vh, 35vw);
