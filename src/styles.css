@@ -106,6 +106,7 @@ body {
 
 .di-watch-face {
     background-color: rgba(80, 80, 80, 0.8);
+    background-size: cover;
     border: 2px solid #fff;
     border-radius: 5%;
     padding: 20px;
