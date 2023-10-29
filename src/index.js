@@ -32,7 +32,9 @@ const secondHand = document.querySelector('.second');
 const minuteHand = document.querySelector('.minute');
 const hourHand = document.querySelector('.hour');
 
-const digitalClock = document.querySelector('.digital-watch');
+const dcHours = document.querySelector('.hours-di');
+const dcMinutes = document.querySelector('.minutes-di');
+const colon = document.querySelector('.colon');
 
 const setTime = () => {
   // Get time
@@ -45,7 +47,9 @@ const setTime = () => {
   minuteHand.style.transform = `rotate(${6 * timeInMinutes - 90}deg)`;
   hourHand.style.transform = `rotate(${(30 * timeInHours + timeInMinutes / 2) - 90}deg)`;
 
-  digitalClock.textContent = `${timeInHours < 10 ? `0${timeInHours}` : timeInHours}:${timeInMinutes < 10 ? `0${timeInMinutes}` : timeInMinutes}`;
+  dcHours.textContent = `${timeInHours < 10 ? `0${timeInHours}` : timeInHours}`;
+  dcMinutes.textContent = `${timeInMinutes < 10 ? `0${timeInMinutes}` : timeInHours}`;
+  colon.style.color = `${timeInSeconds % 2 === 0 ? 'rgba(0, 0, 0, 0)' : '#fff'}`;
 };
 
 setTime();
