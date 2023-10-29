@@ -1,19 +1,24 @@
 import './styles.css';
 import bg from './images/bg.jpg';
 import clockBg from './images/clockBg.jpeg';
+import catBg from './images/catBg.jpeg';
 
 // Set background images
 
 document.querySelector('body').style.backgroundImage = `url(${bg})`;
 
 const watchFace = document.querySelector('.an-watch-face');
+const digitalFace = document.querySelector('.di-watch-face');
+
 let backgroundIsActive = false;
 const toggleBackground = () => {
   if (backgroundIsActive) {
     watchFace.style.backgroundImage = 'none';
+    digitalFace.style.backgroundImage = 'none';
     backgroundIsActive = false;
   } else {
     watchFace.style.backgroundImage = `url(${clockBg})`;
+    digitalFace.style.backgroundImage = `url(${catBg})`;
     backgroundIsActive = true;
   }
 };
