@@ -34,7 +34,6 @@ const hourHand = document.querySelector('.hour');
 
 const dcHours = document.querySelector('.hours-di');
 const dcMinutes = document.querySelector('.minutes-di');
-const colon = document.querySelector('.colon');
 
 const setTime = () => {
   // Get time
@@ -48,10 +47,17 @@ const setTime = () => {
   hourHand.style.transform = `rotate(${(30 * timeInHours + timeInMinutes / 2) - 90}deg)`;
 
   dcHours.textContent = `${timeInHours < 10 ? `0${timeInHours}` : timeInHours}`;
-  dcMinutes.textContent = `${timeInMinutes < 10 ? `0${timeInMinutes}` : timeInHours}`;
-  colon.style.color = `${timeInSeconds % 2 === 0 ? 'rgba(0, 0, 0, 0)' : '#fff'}`;
+  dcMinutes.textContent = `${timeInMinutes < 10 ? `0${timeInMinutes}` : timeInMinutes}`;
 };
 
 setTime();
 
+const colon = document.querySelector('.colon');
+let colonVisible = true;
+const flickerColon = () => {
+  colon.style.color = `${colonVisible ? '#fff' : 'rgba(0, 0, 0, 0)'}`;
+  colonVisible = !colonVisible;
+};
+
 setInterval(setTime, 1000);
+setInterval(flickerColon, 600);
