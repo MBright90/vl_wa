@@ -1,7 +1,7 @@
 import './styles.css';
 import bg from './images/bg.jpg';
-import clockBg from './images/clockBg.jpeg';
 import catBg from './images/catBg.jpeg';
+import imageArr from './images/imageIndex';
 
 // Set background images
 
@@ -10,6 +10,11 @@ document.querySelector('body').style.backgroundImage = `url(${bg})`;
 const watchFace = document.querySelector('.an-watch-face');
 const digitalFace = document.querySelector('.di-watch-face');
 
+const getRandomBg = () => {
+  const randomIndex = Math.floor(Math.random() * imageArr.length);
+  return imageArr[randomIndex];
+};
+
 let backgroundIsActive = false;
 const toggleBackground = () => {
   if (backgroundIsActive) {
@@ -17,7 +22,8 @@ const toggleBackground = () => {
     digitalFace.style.backgroundImage = 'none';
     backgroundIsActive = false;
   } else {
-    watchFace.style.backgroundImage = `url(${clockBg})`;
+    const bgImage = getRandomBg();
+    watchFace.style.backgroundImage = `url(${bgImage})`;
     digitalFace.style.backgroundImage = `url(${catBg})`;
     backgroundIsActive = true;
   }
