@@ -124,6 +124,7 @@ body {
     border: none;
     border-radius: 5%;
     cursor: pointer;
+    font-family: 'DM Mono', monospace;
     font-size: 20px;
     padding: 5px 20px;
     position: absolute;
@@ -135,7 +136,7 @@ body {
 }
 
 .weather-display {
-    left: 30px;right: 30px;
+    left: 30px;
 }
 
 .mike-button:active {
