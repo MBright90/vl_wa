@@ -119,7 +119,7 @@ body {
     font-size: 48px;
 }
 
-.mike-button {
+.mike-button, .weather-display {
     background-color: #fff;
     border: none;
     border-radius: 5%;
@@ -128,12 +128,20 @@ body {
     padding: 5px 20px;
     position: absolute;
     top: 30px;
+}
+
+.mike-button {
     right: 30px;
+}
+
+.weather-display {
+    left: 30px;right: 30px;
 }
 
 .mike-button:active {
     transform: scale(0.8);
 }
+
 
 /* Snowflake animations */
 
