@@ -128,15 +128,15 @@ body {
     font-size: 20px;
     padding: 5px 20px;
     position: absolute;
-    top: 30px;
+    top: 20px;
 }
 
 .mike-button {
-    right: 30px;
+    right: 20px;
 }
 
 .weather-display {
-    left: 30px;
+    left: 20px;
 }
 
 .mike-button:active {
