@@ -3,6 +3,8 @@ import bg from './images/bg.jpg';
 import catBg from './images/catBg.jpeg';
 import imageArr from './images/imageIndex';
 
+import Api from './utilities/apiManager';
+
 // Set background images
 
 document.querySelector('body').style.backgroundImage = `url(${bg})`;
@@ -31,6 +33,13 @@ const toggleBackground = () => {
 
 const button = document.querySelector('.mike-button');
 button.addEventListener('click', toggleBackground);
+
+// Temperature functionality
+
+const setTemp = async () => {
+  const currentTemp = await Api.getCurrentTemp();
+  console.log(currentTemp);
+};
 
 // Clock functionality
 
@@ -65,5 +74,6 @@ const flickerColon = () => {
   colonVisible = !colonVisible;
 };
 
+setTemp();
 setInterval(setTime, 1000);
 setInterval(flickerColon, 600);
