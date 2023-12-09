@@ -18,6 +18,7 @@ time, mark, audio, video {
 	border: 0;
 	font-size: 100%;
 	font: inherit;
+    user-select: none;
 	vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
@@ -123,7 +124,6 @@ body {
     background-color: #fff;
     border: none;
     border-radius: 5%;
-    cursor: pointer;
     font-family: 'DM Mono', monospace;
     font-size: 20px;
     padding: 5px 20px;
@@ -132,6 +132,7 @@ body {
 }
 
 .mike-button {
+    cursor: pointer;
     right: 20px;
 }
 
