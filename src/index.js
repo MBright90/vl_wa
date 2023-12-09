@@ -36,9 +36,11 @@ button.addEventListener('click', toggleBackground);
 
 // Temperature functionality
 
+const temperatureDisplay = document.querySelector('#temperature');
+
 const setTemp = async () => {
   const currentTemp = await Api.getCurrentTemp();
-  console.log(currentTemp);
+  temperatureDisplay.textContent = `${currentTemp}°C`;
 };
 
 // Clock functionality
