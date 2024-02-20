@@ -1,7 +1,7 @@
 import './styles.css';
 import bg from './images/bg.jpg';
 import catBg from './images/catBg.jpeg';
-import imageArr from './images/imageIndex';
+import imageArr, { weatherImgs } from './images/imageIndex';
 
 import Api from './utilities/apiManager';
 
@@ -34,13 +34,42 @@ const toggleBackground = () => {
 const button = document.querySelector('.mike-button');
 button.addEventListener('click', toggleBackground);
 
-// Temperature functionality
+// Temperature and weather functionality
 
 const temperatureDisplay = document.querySelector('#temperature');
 
-const setTemp = async () => {
-  const currentTemp = await Api.getCurrentTemp();
-  temperatureDisplay.textContent = `${currentTemp}°C`;
+const animateWeather = (weatherCode) => {
+  if (weatherCode >= 801) {
+    // clouds
+    const clouds = document.querySelectorAll('.cloud');
+    clouds.forEach((cloud) => {
+      cloud.style.display = 'block';
+    });
+  } else if (weatherCode === 800) {
+    // sunny
+    const sun = document.querySelector('.sun');
+    sun.setAttribute('src', weatherImgs.sun);
+    sun.style.display = 'block';
+  } else if (weatherCode >= 600 && weatherCode < 700) {
+    // snow
+    const droplets = document.querySelectorAll('.droplet');
+    droplets.forEach((droplet) => {
+      droplet.textContent = '❆';
+      droplet.style.display = 'block';
+      droplet.style['animation-name'] = 'droplets-fall, snowflake-shake';
+    });
+  } else if (weatherCode < 600) {
+    // rain
+    const droplets = document.querySelectorAll('.droplet');
+    droplets.forEach((droplet) => { droplet.style.display = 'block'; });
+  }
+};
+
+const setWeather = async () => {
+  const currentWeather = await Api.getCurrentWeather();
+
+  temperatureDisplay.textContent = `${currentWeather.temp}°C`;
+  animateWeather(currentWeather.weatherCode);
 };
 
 // Clock functionality
@@ -76,6 +105,6 @@ const flickerColon = () => {
   colonVisible = !colonVisible;
 };
 
-setTemp();
+setWeather();
 setInterval(setTime, 1000);
 setInterval(flickerColon, 600);
