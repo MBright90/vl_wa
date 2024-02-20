@@ -6,16 +6,18 @@ const lon = 2.9977;
 const ApiManager = (() => {
   const newportQuery = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${weatherKey}&units=metric`;
 
-  const getCurrentTemp = async () => {
+  const getCurrentWeather = async () => {
     const response = await fetch(newportQuery);
     const weatherData = await response.json();
 
     if (!response.ok) return false;
 
-    return Math.round(weatherData.list[0].main.temp);
+    const weatherCode = weatherData.list[0].weather[0].id;
+    const temp = Math.round(weatherData.list[0].main.temp);
+    return { weatherCode, temp };
   };
 
-  return { getCurrentTemp };
+  return { getCurrentWeather };
 })();
 
 export default ApiManager;
