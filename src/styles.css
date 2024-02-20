@@ -252,6 +252,7 @@ body {
 .cloud {
     background-color: #fff;
     box-shadow: 10px 10px rgba(0, 0, 0, 0.4);
+    display: none;
     position: absolute;
 }
 
